@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class LerpPractice : MonoBehaviour
 {
+    [SerializeField] private Transform a;
+    [SerializeField] private Transform b;
+    [SerializeField] private float t;
     private float current, target;
     public float speed = 0.5f;
     void Start()
@@ -29,6 +32,7 @@ public class LerpPractice : MonoBehaviour
         // a target
         // and a speed
         current = Mathf.MoveTowards(current, target, speed * Time.deltaTime);
+        transform.position = Vector3.Lerp(a.position, b.position, t);
         Debug.Log(current);
     }
 }
